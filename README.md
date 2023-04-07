@@ -31,3 +31,15 @@ terraform apply
 ```
 terraform destroy
 ``` 
+```
+vi backend.tf
+
+# store the terraform state file in s3
+terraform {
+  backend "s3" {
+    bucket    = "terraform-remote-state-ken"
+    key       = "ken-ecs.tfstate"
+    region    = "us-west-2"
+    profile   = "default"
+  }
+}
